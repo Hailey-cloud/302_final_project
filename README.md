@@ -31,28 +31,27 @@ We are given anonymized customer data from a fictional bank. The objective is to
 ## 📈 Feature Engineering Highlights
 
 - 🔢 **Macro-financial integration**:
-  - Incorporated external **CET1 capital ratio (2016)** by country (France, Germany, Spain)
-  - Used rank encoding to preserve order while avoiding category leakage
+  - Incorporated external **CET1 capital  (2016)** by country (France, Germany, Spain)
+  - The CET1 ratio is an important indicator of a bank's financial soundness and is an external macro factor that can influence consumer confidence in banks and,churn behavior.
+  - This Kaggle dataset is expected to be based on 2016 data. 
 - 🧹 **Numerical processing**:
   - Winsorization & log transformation on skewed variables
   - Standardization for linear models
 - 🧠 **Encoding**:
   - One-hot & ordinal encoding depending on model class
   - Target encoding tested but discarded due to overfitting risk
-- 🔄 **Cross-feature interactions**:
-  - Combined `CreditScore × Age`, `Tenure / Balance` ratios
-  - Created age-bucketed interaction terms for churn-prone segments
+
 
 ---
 
 ## 🧪 Modeling
 
-| Model         | CV ROC AUC | Public LB | Notes |
-|---------------|------------|-----------|-------|
-| LightGBM      | 0.859      | 0.861     | Baseline, fast tuning |
-| XGBoost       | 0.860      | 0.860     | Slightly more stable |
-| CatBoost      | 0.862      | 0.863     | Robust to missing/categorical |
-| Logistic Reg. | 0.829      | 0.827     | Linear baseline |
+| Model             | CV ROC AUC | Public LB | Notes |
+|-------------------|------------|-----------|-------|
+| XGBoost           | 0.859      | 0.861     | Baseline, fast tuning |
+| LightGBM          | 0.860      | 0.860     | Slightly more stable |
+| CatBoost   　　　  | 0.862      | 0.863     | Robust to missing/categorical |
+| ⭐️Ensemble model⭐ | 0.829      | 0.827     | Linear baseline |
 
 **Final submission:** CatBoost with full feature set + external CET1 + stratified 5-fold
 
@@ -72,17 +71,18 @@ We are given anonymized customer data from a fictional bank. The objective is to
    ```bash
    git clone https://github.com/yourusername/kaggle-s4e1-churn.git
    cd kaggle-s4e1-churn
+  ```bash
 
 2. Install dependencies:
    ```bash
   pip install -r requirements.txt
   Download data from Kaggle and place it in ./data/.
-
+  ```bash
 3. Run pipeline:
 
   ```bash
   python src/train.py --config=configs/default.yaml
-
+  ```bash
 
 🧠 Key Learnings
 Incorporating external macroeconomic data like CET1 ratios adds predictive signal and encourages real-world thinking beyond the dataset.
