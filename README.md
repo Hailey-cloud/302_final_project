@@ -1,4 +1,4 @@
-# 🏆 Kaggle Playground Series - Season 4, Episode 1
+# 🏆 Bank churn dataset | Kaggle
 
 > Predicting customer churn using bank customer data with additional macroeconomic features.
 
