@@ -67,22 +67,21 @@ We are given anonymized customer data from a fictional bank. The objective is to
 
 ## 🚀 How to Reproduce
 
+
 1. Clone this repo:
    ```bash
    git clone https://github.com/yourusername/kaggle-s4e1-churn.git
    cd kaggle-s4e1-churn
-  ```bash
+
 
 2. Install dependencies:
-   ```bash
   pip install -r requirements.txt
-  Download data from Kaggle and place it in ./data/.
-  ```bash
+
+
 3. Run pipeline:
 
-  ```bash
   python src/train.py --config=configs/default.yaml
-  ```bash
+
 
 🧠 Key Learnings
 Incorporating external macroeconomic data like CET1 ratios adds predictive signal and encourages real-world thinking beyond the dataset.
