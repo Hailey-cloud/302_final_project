@@ -7,6 +7,10 @@
 ![Status](https://img.shields.io/badge/Status-Completed%20%2F%20Final%20Submission-yellow)
 
 ---
+## 🥇 Final Score
+
+The Final submission score is **89.442%** which is ranked 15% in this competition.
+---
 
 ## 📌 Overview
 
