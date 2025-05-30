@@ -46,22 +46,27 @@ We are given anonymized customer data from a fictional bank. The objective is to
 
 ## 🧪 Modeling
 
-| Model             | CV ROC AUC | Public LB | Notes |
-|-------------------|------------|-----------|-------|
-| XGBoost           | 0.859      | 0.861     | Baseline, fast tuning |
-| LightGBM          | 0.860      | 0.860     | Slightly more stable |
-| CatBoost   　　　  | 0.862      | 0.863     | Robust to missing/categorical |
-| ⭐️Ensemble model⭐ | 0.829      | 0.827     | Linear baseline |
+| Model             | CV ROC AUC |
+|-------------------|------------|
+| XGBoost           | 0.8951     |
+| LightGBM          | 0.8953     |
+| CatBoost   　　　  | 0.8934     |
+| ⭐️Ensemble model⭐ | 0.8944     | 
 
-**Final submission:** CatBoost with full feature set + external CET1 + stratified 5-fold
+**Final submission:** CatBoost with full feature set + external CET1 + Optuna +　stratified 5-fold
 
 ---
 
 ## 📊 EDA Highlights
 
-- Clear age-churn correlation (inverted U-shape)
-- Geography plays significant role; CET1 adjustment helps smooth this effect
-- Low balance customers churn more; tenure and activity history modulate this
+- ・Age Gender ：Churn rate tends to be higher for women and around middle-age.
+
+-・Country ：France has the largest number of customers, but the churn rate in Germany is almost half which may be related to the low CET1 values, which are unstable due to low bank reliability.
+
+-・Number of Products : Having only 1 product show a noticeably higher churn rate. Offering more products may help reduce churn.
+
+-・Activity status: inactive members are more likely to churn.So promoting customer engagement may be an effective churn prevention strategy.
+
 
 ---
 
